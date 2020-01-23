@@ -1,9 +1,37 @@
 #!/usr/bin/python
 
+
+
+''' Anagram notes from Lecture '''
+# Given a word, return all anagrams of that word in the English Language
+
+# Given a word, check each other word in the list, and return all that are anagrams
+
+# How do we know if two words are anagrams of each other? 
+# Same length
+# all letters in the first word are present at the same frequency in second word 
+def is_anagram(word1, word2):
+  if sorted(word1) != sorted(word2):
+    return False
+  else:
+    return True
+
+
+
+
+
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  min_ratio = math.inf
+
+  for ingredient, amount in recipe.items():
+    if ingredient not in ingredients:
+      return 0
+    ratio = math.floor(ingredients[ingredient] / amount)
+    if ratio < min_ratio:
+      min_ratio = ratio
+  return min_ratio  
 
 
 if __name__ == '__main__':
